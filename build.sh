@@ -1,9 +1,11 @@
 #!/bin/bash
 
+set -e
+
 JE_VERSION="9.1.3"
 
 checksum() {
-    cat "$1" | openssl dgst -sha256 -binary | openssl base64 -A
+    sha256sum "$1" | cut -f1 -d ' '
 }
 
 yarn install --frozen-lockfile
@@ -13,18 +15,16 @@ mkdir dist
 
 jecss_filename="jsoneditor-v${JE_VERSION}.min.css"
 cp node_modules/jsoneditor/dist/jsoneditor.min.css "dist/${jecss_filename}"
-jecss_checksum="$(checksum "dist/${jecss_filename}")"
-
 jejs_filename="jsoneditor-v${JE_VERSION}.min.js"
 cp node_modules/jsoneditor/dist/jsoneditor.min.js "dist/${jejs_filename}"
-jejs_checksum="$(checksum "dist/${jejs_filename}")"
+cp -r node_modules/jsoneditor/dist/img dist/img
 
-yarn run sass sass/app.scss dist/app.css
+yarn run sass --no-source-map sass/app.scss dist/app.css
 appcss_checksum="$(checksum dist/app.css)"
 mv dist/app.css "dist/app.${appcss_checksum}.css"
 
-cat js/init.js > dist/app.js
+cat js/init.js js/split.js > dist/app.js
 appjs_checksum="$(checksum dist/app.js)"
 mv dist/app.js "dist/app.${appjs_checksum}.js"
 
-cat html/index.html | yarn run -s handlebarsjs-cli --jeCss="${jecss_filename}" --jeCssChecksum="${jecss_checksum}" --jeJs="${jejs_filename}" --jeJsChecksum="${jejs_checksum}" --appCssChecksum="${appcss_checksum}" --appJsChecksum="${appjs_checksum}" --appHtml='roflcopter' > dist/index.html
+cat html/index.html | yarn run -s handlebarsjs-cli --jeCss="${jecss_filename}" --jeJs="${jejs_filename}" --appCssChecksum="${appcss_checksum}" --appJsChecksum="${appjs_checksum}" > dist/index.html

@@ -1,6 +1,7 @@
 .left-panel,
 .right-panel {
-    flex: 1 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
     height: 100%;
     width: 0;
     background: #ffffff;
@@ -27,6 +28,7 @@
     .actions {
         display: flex;
         flex-direction: column;
+        margin-bottom: 10px;
     }
 
     .draggable-splitter {
@@ -37,5 +39,16 @@
         display: inline-flex;
         align-items: center;
         font-size: 24px;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.02);
+            color: #707070;
+        }
+
+        .draggable-splitter-icon {
+            width: 100%;
+            text-align: center;
+            user-select: none;
+        }
     }
 }

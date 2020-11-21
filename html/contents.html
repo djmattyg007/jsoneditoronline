@@ -1,21 +1,23 @@
 <div class="contents-panel">
-    <div id="panel-left" class="left-panel" style="flex: 0.494082 1 0%;"></div>
-    <div class="center-panel">
+    <div id="panel-left" class="left-panel" style="flex-grow: 0.49;"></div>
+    <div id="panel-separator" class="center-panel">
         <div class="empty-space-top"></div>
         <div class="actions">
-            <button title="Copy the contents of the left panel to the right panel">
+            <button data-app-action="to-right" title="Copy the contents of the left panel to the right panel">
                 Copy &gt;
             </button>
-            <button title="Copy the contents of the right panel to the left panel">
+            <button data-app-action="to-left" title="Copy the contents of the right panel to the left panel">
                 &lt; Copy
             </button>
             <button title="Highlight the differences between left and right panel contents">
                 Diff
             </button>
         </div>
-        <div class="draggable-splitter">
-            |
+        <div id="panel-separator-draghandle" class="draggable-splitter">
+            <div class="draggable-splitter-icon">
+                |
+            </div>
         </div>
     </div>
-    <div id="panel-right" class="right-panel" style="flex: 0.505918 1 0%;"></div>
+    <div id="panel-right" class="right-panel" style="flex-grow: 0.51;"></div>
 </div>

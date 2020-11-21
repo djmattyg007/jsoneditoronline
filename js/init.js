@@ -1,11 +1,11 @@
-(function(root) {
+(function(root, doc) {
     const appOnError = (err) => {
         window.jeLastError = err;
         alert(String(err));
     };
 
-    const panelLeft = document.getElementById("panel-left");
-    const panelRight = document.getElementById("panel-right");
+    const panelLeft = doc.getElementById("panel-left");
+    const panelRight = doc.getElementById("panel-right");
 
     const startJson = {
         "array": [1, 2, 3],
@@ -16,7 +16,7 @@
         "string": "Hello World",
     };
 
-    const editorLeft = new JSONEditor(panelLeft, { mode: "code", onError: appError }, startJson);
+    const editorLeft = new JSONEditor(panelLeft, { mode: "code", onError: appOnError }, startJson);
     const editorRight = new JSONEditor(panelRight, { mode: "tree", onError: appOnError }, startJson);
 
     document.addEventListener("click", (evt) => {
@@ -39,4 +39,4 @@
 
     root.jeEditorLeft = editorLeft;
     root.jeEditorRight = editorRight;
-})(window);
+})(window, document);
