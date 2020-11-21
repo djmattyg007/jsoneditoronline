@@ -16,8 +16,16 @@
         "string": "Hello World",
     };
 
-    const editorLeft = new JSONEditor(panelLeft, { mode: "code", onError: appOnError }, startJson);
-    const editorRight = new JSONEditor(panelRight, { mode: "tree", onError: appOnError }, startJson);
+    const editorLeft = new JSONEditor(
+        panelLeft,
+        { mode: "code", modes: ["code", "tree"], onError: appOnError },
+        startJson
+    );
+    const editorRight = new JSONEditor(
+        panelRight,
+        { mode: "tree", modes: ["code", "tree"], onError: appOnError },
+        startJson
+    );
 
     document.addEventListener("click", (evt) => {
         if (evt.target.matches("[data-app-action='to-left']")) {
