@@ -1,6 +1,6 @@
 {
   "private": true,
-  "license": "Unlicense",
+  "license": "AGPL-3.0-only",
   "dependencies": {
     "handlebarsjs-cli": "^0.0.1",
     "jsoneditor": "^9.1.3",
