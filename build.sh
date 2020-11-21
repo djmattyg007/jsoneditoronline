@@ -2,6 +2,8 @@
 
 set -e
 
+cd "$(dirname -- "$(readlink -f "$0")")"
+
 JE_VERSION="9.1.3"
 
 checksum() {
