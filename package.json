@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "license": "Unlicense",
+  "dependencies": {
+    "handlebarsjs-cli": "^0.0.1",
+    "jsoneditor": "^9.1.3",
+    "sass": "^1.29.0"
+  }
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JSON Editor</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link type="text/css" rel="stylesheet" href="{{ jeCss }}" integrity="{{{ jeCssChecksum }}}">
+    <link type="text/css" rel="stylesheet" href="app.{{ appCssChecksum }}.css" integrity="{{{ appCssChecksum }}}">
+</head>
+<body>
+<div id="root">
+    <div class="app">
+        <div class="body">
+            {{{include 'html/contents.html'}}}
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{{ jeJs }}" integrity="sha256-{{{ jeJsChecksum }}}"></script>
+<script type="text/javascript" src="app.{{ appJsChecksum }}.js" integrity="sha256-{{{ appJsChecksum }}}"></script>
+</body>
+</html>

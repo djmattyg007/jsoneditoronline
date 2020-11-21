@@ -1,0 +1,41 @@
+.left-panel,
+.right-panel {
+    flex: 1 1;
+    height: 100%;
+    width: 0;
+    background: #ffffff;
+    overflow: hidden;
+    outline: 1px solid #f0f0f0;
+}
+.left-panel {
+    margin-right: 10px;
+}
+.right-panel {
+    margin-left: 10px;
+}
+
+.center-panel {
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    .empty-space-top {
+        flex: 1 1;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .draggable-splitter {
+        flex: 4 1;
+        cursor: col-resize;
+        border-radius: 3px;
+        color: #a8a8a8;
+        display: inline-flex;
+        align-items: center;
+        font-size: 24px;
+    }
+}
