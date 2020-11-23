@@ -4,7 +4,7 @@ set -e
 
 cd "$(dirname -- "$(readlink -f "$0")")"
 
-JE_VERSION="9.1.3"
+JE_VERSION="$(yarn -s info jsoneditor version)"
 
 checksum() {
     sha256sum "$1" | cut -f1 -d ' '
